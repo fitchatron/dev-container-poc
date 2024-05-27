@@ -11,6 +11,9 @@ importers:
       '@globalhive/vuejs-tour':
         specifier: ^1.6.0
         version: 1.6.0(typescript@5.4.5)
+      axios:
+        specifier: ^1.7.2
+        version: 1.7.2(debug@4.3.4)
       pinia:
         specifier: ^2.1.7
         version: 2.1.7(typescript@5.4.5)(vue@3.4.27(typescript@5.4.5))
@@ -19,7 +22,7 @@ importers:
         version: 12.0.2
       v-onboarding:
         specifier: ^2.8.2
-        version: 2.8.2(axios@1.6.8)(vue@3.4.27(typescript@5.4.5))
+        version: 2.8.2(axios@1.7.2)(vue@3.4.27(typescript@5.4.5))
       vue:
         specifier: ^3.4.21
         version: 3.4.27(typescript@5.4.5)
@@ -818,8 +821,8 @@ packages:
   aws4@1.12.0:
     resolution: {integrity: sha512-NmWvPnx0F1SfrQbYwOi7OeaNGokp9XhzNioJ/CSBs8Qa4vxug81mhJEAVZwxXuBmYB5KDRfMq/F3RR0BIU7sWg==}
 
-  axios@1.6.8:
-    resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
+  axios@1.7.2:
+    resolution: {integrity: sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==}
 
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
@@ -3123,13 +3126,13 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/integrations@10.9.0(axios@1.6.8)(focus-trap@7.5.4)(vue@3.4.27(typescript@5.4.5))':
+  '@vueuse/integrations@10.9.0(axios@1.7.2)(focus-trap@7.5.4)(vue@3.4.27(typescript@5.4.5))':
     dependencies:
       '@vueuse/core': 10.9.0(vue@3.4.27(typescript@5.4.5))
       '@vueuse/shared': 10.9.0(vue@3.4.27(typescript@5.4.5))
       vue-demi: 0.14.7(vue@3.4.27(typescript@5.4.5))
     optionalDependencies:
-      axios: 1.6.8(debug@4.3.4)
+      axios: 1.7.2(debug@4.3.4)
       focus-trap: 7.5.4
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -3235,7 +3238,7 @@ snapshots:
 
   aws4@1.12.0: {}
 
-  axios@1.6.8(debug@4.3.4):
+  axios@1.7.2(debug@4.3.4):
     dependencies:
       follow-redirects: 1.15.6(debug@4.3.4)
       form-data: 4.0.0
@@ -4843,10 +4846,10 @@ snapshots:
 
   uuid@8.3.2: {}
 
-  v-onboarding@2.8.2(axios@1.6.8)(vue@3.4.27(typescript@5.4.5)):
+  v-onboarding@2.8.2(axios@1.7.2)(vue@3.4.27(typescript@5.4.5)):
     dependencies:
       '@popperjs/core': 2.11.8
-      '@vueuse/integrations': 10.9.0(axios@1.6.8)(focus-trap@7.5.4)(vue@3.4.27(typescript@5.4.5))
+      '@vueuse/integrations': 10.9.0(axios@1.7.2)(focus-trap@7.5.4)(vue@3.4.27(typescript@5.4.5))
       focus-trap: 7.5.4
       vue: 3.4.27(typescript@5.4.5)
     transitivePeerDependencies:
@@ -4991,7 +4994,7 @@ snapshots:
 
   wait-on@7.2.0(debug@4.3.4):
     dependencies:
-      axios: 1.6.8(debug@4.3.4)
+      axios: 1.7.2(debug@4.3.4)
       joi: 17.13.1
       lodash: 4.17.21
       minimist: 1.2.8

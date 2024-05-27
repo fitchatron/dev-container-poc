@@ -11,7 +11,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@stores/*": ["./src/stores/*"],
-      "@services/*": ["./src/stores/*"]
+      "@services/*": ["./src/services/*"]
     }
   }
 }

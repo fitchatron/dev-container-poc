@@ -17,5 +17,15 @@ export default defineConfig({
       '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
       '@lib': fileURLToPath(new URL('./src/lib', import.meta.url))
     }
+  },
+  server: {
+    port: 3000,
+    proxy: {
+      '^/api/.*': {
+        target: 'http://api:80/',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   }
 })

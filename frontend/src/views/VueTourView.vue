@@ -17,18 +17,18 @@ const steps = [
   }
 ]
 const tour = ref<unknown | null>(null)
-const showTour = ref(true)
+// const showTour = ref(true)
 
 const resetTour = () => {
-  tour.value!.resetTour()
+  // tour.value!.resetTour()
   console.log('resetted')
 }
 
-onMounted(() => {
-  if (tour.value) {
-    tour.value.startTour()
-  }
-})
+// onMounted(() => {
+//   if (tour.value) {
+//     tour.value.startTour()
+//   }
+// })
 </script>
 
 <template>

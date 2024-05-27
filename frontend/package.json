@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "test:unit": "vitest",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@globalhive/vuejs-tour": "^1.6.0",
+    "axios": "^1.7.2",
     "pinia": "^2.1.7",
     "shepherd.js": "^12.0.2",
     "v-onboarding": "^2.8.2",
