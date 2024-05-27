@@ -16,13 +16,11 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@globalhive/vuejs-tour": "^1.6.0",
     "axios": "^1.7.2",
     "pinia": "^2.1.7",
     "shepherd.js": "^12.0.2",
     "v-onboarding": "^2.8.2",
     "vue": "^3.4.21",
-    "vue-page-guide": "^0.2.0",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {

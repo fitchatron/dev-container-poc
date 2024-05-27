@@ -18,28 +18,12 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/v-tour',
-      name: 'vue-tour',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/VueTourView.vue')
-    },
-    {
       path: '/v-onboarding',
       name: 'v-onboarding',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/VOnboardingView.vue')
-    },
-    {
-      path: '/vue-page-guide',
-      name: 'vue-page-guide',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/VuePageGuide.vue')
     },
     {
       path: '/shepherd-view',

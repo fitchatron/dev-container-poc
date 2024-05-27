@@ -46,17 +46,6 @@ function toggleIsExpanded() {
         </button>
       </div>
       <ul class="flex flex-col md:flex-row md:gap-4 gap-1">
-        <RouterLink to="/v-tour"
-          ><li
-            class="ml-2 md:ml-0 hover:bg-slate-500 px-4 py-2 rounded hover:text-white"
-            :class="{
-              'underline border rounded border-slate-500 hover:cursor-not-allowed':
-                route.fullPath === '/v-tour'
-            }"
-          >
-            Vue Tour
-          </li></RouterLink
-        >
         <RouterLink to="/v-onboarding"
           ><li
             class="ml-2 md:ml-0 hover:bg-slate-500 px-4 py-2 rounded hover:text-white"
@@ -66,17 +55,6 @@ function toggleIsExpanded() {
             }"
           >
             v-onboarding
-          </li></RouterLink
-        >
-        <RouterLink to="/vue-page-guide"
-          ><li
-            class="ml-2 md:ml-0 hover:bg-slate-500 px-4 py-2 rounded hover:text-white"
-            :class="{
-              'underline border rounded border-slate-500 hover:cursor-not-allowed':
-                route.fullPath === '/vue-page-guide'
-            }"
-          >
-            Vue Page Guide
           </li></RouterLink
         >
         <RouterLink to="/shepherd-view"
