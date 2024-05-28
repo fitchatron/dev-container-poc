@@ -27,5 +27,15 @@ export default defineConfig({
         secure: false
       }
     }
+  },
+  preview: {
+    port: 3000,
+    proxy: {
+      '^/api/.*': {
+        target: 'http://api:80/',
+        changeOrigin: true,
+        secure: false
+      }
+    }
   }
 })

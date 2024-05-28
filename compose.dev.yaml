@@ -23,8 +23,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: onboard-web
-    command: pnpm preview
+    container_name: onboard-web-dev
+    command: pnpm dev
     ports:
       - 3000:3000
     environment:
@@ -45,10 +45,14 @@ services:
           target: /app
           action: sync
   api:
+    # api service depends on the db service so the db service will be started before the api service
+    # depends_on:
+    #   db:
+    #     condition: service_healthy
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: onboard-api
+    container_name: onboard-api-dev
     command: uvicorn main:app --host 0.0.0.0 --port 80 --reload
     ports:
       - 8000:80
@@ -64,3 +68,34 @@ services:
         - path: ./backend
           target: /app
           action: sync
+  # The `db-data` volume persists the database data between container restarts.
+  # The `db-password` secret is used to set the database password.
+  # You must create `db/password.txt` and add a password of your choosing
+  # to it before running `docker-compose up`.
+#   db:
+#     image: postgres
+#     restart: always
+#     user: postgres
+#     secrets:
+#       - db-password
+#     volumes:
+#       - db-data:/var/lib/postgresql/data
+#     environment:
+#       - POSTGRES_DB=app
+#       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+#       - POSTGRES_USER=onboard-app-su
+#       - PGDATA=db-data
+#     expose:
+#       - 5432
+#     ports:
+#       - 5432:5432
+#     healthcheck:
+#       test: ["CMD", "pg_isready"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+# volumes:
+#   db-data:
+# secrets:
+#   db-password:
+#     file: db/password.txt

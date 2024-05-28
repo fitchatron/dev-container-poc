@@ -14,7 +14,7 @@ ARG PNPM_VERSION=9.1.1
 FROM node:${NODE_VERSION}-alpine as base
 
 # Use production node environment by default.
-# ENV NODE_ENV production
+ENV NODE_ENV development
 
 # Install pnpm.
 RUN --mount=type=cache,target=/root/.npm \
