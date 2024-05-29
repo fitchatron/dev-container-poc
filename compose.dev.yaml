@@ -24,7 +24,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: onboard-web-dev
-    command: pnpm dev
     ports:
       - 3000:3000
     environment:
@@ -53,7 +52,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: onboard-api-dev
-    command: uvicorn main:app --host 0.0.0.0 --port 80 --reload
+    command: fastapi dev main.py
     ports:
       - 8000:80
         # this is for docker compose watch mode
