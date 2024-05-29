@@ -1,0 +1,7 @@
+{
+  "name": "Node Container",
+  "dockerComposeFile": ["../../compose.dev.yaml"],
+  "service": "web",
+  "shutdownAction": "none",
+  "workspaceFolder": "/workspace/frontend"
+}
