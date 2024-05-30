@@ -45,14 +45,14 @@ services:
           action: sync
   api:
     # api service depends on the db service so the db service will be started before the api service
-    # depends_on:
-    #   db:
-    #     condition: service_healthy
+    depends_on:
+      db:
+        condition: service_healthy
     build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: onboard-api-dev
-    command: fastapi dev main.py
+    command: uvicorn main:app --host 0.0.0.0 --port 80 --reload
     ports:
       - 8000:80
         # this is for docker compose watch mode
@@ -71,6 +71,23 @@ services:
   # The `db-password` secret is used to set the database password.
   # You must create `db/password.txt` and add a password of your choosing
   # to it before running `docker-compose up`.
+  db:
+    container_name: onboard-db-dev
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    restart: always
+    mem_limit: 4G
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+      - MSSQL_SA_PASSWORD=Changem3
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Changem3 -t 5 -Q "IF DB_ID('master') IS NOT NULL print 'AVAILABLE'" || exit 1
+      interval: 3s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 #   db:
 #     image: postgres
 #     restart: always
@@ -93,8 +110,8 @@ services:
 #       interval: 10s
 #       timeout: 5s
 #       retries: 5
-# volumes:
-#   db-data:
-# secrets:
-#   db-password:
-#     file: db/password.txt
+volumes:
+  db-data:
+secrets:
+  db-password:
+    file: db/password.txt
