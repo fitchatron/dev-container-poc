@@ -7,8 +7,9 @@ from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
-metadata = MetaData(schema="test_docker")
-Base = declarative_base(metadata=metadata)
+# metadata = MetaData(schema="app")
+# Base = declarative_base(metadata=metadata)
+Base = declarative_base()
 
 class User(Base):
     __tablename__ = "user"
@@ -33,6 +34,10 @@ class Item(Base):
     def __repr__(self) -> str:
         return f"Item(id={self.id!r}, name={self.name!r}, price_in_cents={self.price_in_cents!r}, available={self.available!r})"
     
+    def as_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+        
 class Order(Base):
     __tablename__ = "order"
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -41,10 +46,10 @@ class Order(Base):
     item_id: Mapped[int] = mapped_column(ForeignKey("item.id"))
 
     user: Mapped["User"] = relationship(
-        back_populates="orders", cascade="all, delete-orphan"
+        back_populates="orders", cascade="all"
     )
     item: Mapped["Item"] = relationship(
-        back_populates="orders", cascade="all, delete-orphan"
+        back_populates="orders", cascade="all"
     )
     
     def __repr__(self) -> str:

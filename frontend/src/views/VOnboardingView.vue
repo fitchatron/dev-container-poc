@@ -26,6 +26,11 @@ const steps = [
 onMounted(() => {
   start()
 })
+
+const jaysonToString = () => {
+  let hi;
+  console.log(JSON.stringify(steps));
+} 
 </script>
 
 <template>
@@ -75,6 +80,13 @@ onMounted(() => {
         @click.prevent="start()"
       >
         Reset
+      </button>
+      <button
+        class="bg-blue-700 px-4 py-2 rounded text-white"
+        type="button"
+        @click.prevent="jaysonToString()"
+      >
+        JSON
       </button>
     </div>
   </div>
