@@ -33,3 +33,6 @@ coverage
 # python
 __pycache__
 .venv
+venv
+
+.pnpm-store
